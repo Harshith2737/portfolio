@@ -14,4 +14,4 @@ The complete original Neo-Brutalist portfolio is preserved, including the custom
 - `Assets/images/` — profile and visual assets
 - `Assets/Resume/` — resume files
 
-Deploy this repository root directly as a static site. No framework build step is required.
+Deploy the repository root directly as a static site. No framework build step is required.
