@@ -1,0 +1,127 @@
+name: Sync portfolio content
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - '.github/workflows/portfolio-content-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update portfolio without touching animations
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('index.html')
+          html = path.read_text(encoding='utf-8')
+
+          # Metadata / current positioning
+          html = html.replace(
+              'HARSHITH | CS Builder & AI Hacker',
+              'HARSHITH | CS Builder • AI • Data • Cyber'
+          )
+          html = html.replace(
+              'Second-year CSE (Data Science) builder shipping applied AI, data, cybersecurity & full-stack systems. CyberFest 2026 Winner. React • Python • Data Science.',
+              'Second-year CSE (Data Science) builder shipping applied AI, data, cybersecurity & full-stack systems. 2026 hackathon winner. React • Python • Data Science.'
+          )
+          html = html.replace(
+              'Second-year CSE (Data Science) student building applied AI, data, cybersecurity & full-stack systems that refuse to be boring. CyberFest 2026 Winner.',
+              'Second-year CSE (Data Science) student building applied AI, data, cybersecurity & full-stack systems that refuse to be boring. 2026 hackathon winner.'
+          )
+          html = html.replace(
+              'https://portfolio-i9kloe3lc-harshithgovada34-6006s-projects.vercel.app/',
+              'https://portfolio-i9kloe3lc-harshithgovada34-6006s-projects.vercel.app/'
+          )
+
+          # Keep the original photo path/visual treatment; only ensure the alt text is current.
+          html = html.replace('alt="Harshith"', 'alt="Govada Harshith"')
+
+          # Current about copy.
+          html = html.replace(
+              'Second-year CSE (Data Science) student at CMR Technical Campus who ships applied AI, cybersecurity, data and full-stack systems. I believe code should solve problems, not just look pretty.',
+              'Second-year CSE (Data Science) student at CMR Technical Campus building applied AI, cybersecurity, data and full-stack systems. I like turning ideas into working products and learning by shipping.'
+          )
+
+          # Add one animated latest-update section before the footer/body closes.
+          marker = '<!-- LATEST_PROFILE_SYNC -->'
+          if marker not in html:
+              section = r'''
+    <!-- LATEST_PROFILE_SYNC -->
+    <section id="updates" class="py-24 px-4 max-w-7xl mx-auto border-x-4 border-black bg-neo-yellow my-12 shadow-hard-lg reveal">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+            <div>
+                <p class="font-mono font-bold text-sm mb-2">// LATEST SYNC :: 2026</p>
+                <h2 class="text-5xl md:text-7xl font-black uppercase leading-none">Recent wins.<br><span class="text-white text-stroke-black" style="-webkit-text-stroke: 2px black;">Recent builds.</span></h2>
+            </div>
+            <div class="bg-white border-2 border-black shadow-hard p-4 font-mono font-bold max-w-md rotate-1">
+                Portfolio data synchronized with my current GitHub, LinkedIn and coding-profile direction.
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <article class="bg-white border-4 border-black p-6 shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">
+                <span class="font-mono text-xs font-bold bg-neo-red text-white px-2 py-1 border border-black">WIN / 01</span>
+                <h3 class="text-2xl font-black uppercase mt-4">CyberFest 2026</h3>
+                <p class="font-mono mt-3">1st Prize in the cybersecurity domain at CBIT Hyderabad.</p>
+            </article>
+            <article class="bg-white border-4 border-black p-6 shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">
+                <span class="font-mono text-xs font-bold bg-neo-blue text-white px-2 py-1 border border-black">WIN / 02</span>
+                <h3 class="text-2xl font-black uppercase mt-4">Breaking Bytes</h3>
+                <p class="font-mono mt-3">1st Place at the Datazoids Ideathon 2K26 with Team Breaking Bytes.</p>
+            </article>
+            <article class="bg-white border-4 border-black p-6 shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">
+                <span class="font-mono text-xs font-bold bg-neo-green px-2 py-1 border border-black">WIN / 03</span>
+                <h3 class="text-2xl font-black uppercase mt-4">Code-A-Thon 2026</h3>
+                <p class="font-mono mt-3">1st Place at CMR Technical Campus in a four-hour coding challenge.</p>
+            </article>
+        </div>
+
+        <div class="mt-8 border-4 border-black bg-black text-white p-5 font-mono marquee-container">
+            <div class="marquee-content text-lg">
+                /// CROSS-SENSE AI /// CERTIFICATE AUTOMATION /// KANDEV /// CAPACITY CONNECT /// 100 DAYS / 100 PROJECTS /// AI / DATA / CYBER / FULL-STACK ///
+                /// CROSS-SENSE AI /// CERTIFICATE AUTOMATION /// KANDEV /// CAPACITY CONNECT /// 100 DAYS / 100 PROJECTS /// AI / DATA / CYBER / FULL-STACK ///
+            </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-4 font-mono font-bold">
+            <a href="https://github.com/Harshith2737" target="_blank" rel="noopener noreferrer" class="bg-white border-2 border-black px-5 py-3 shadow-hard hover:bg-neo-blue hover:text-white hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">GITHUB</a>
+            <a href="https://www.linkedin.com/in/govada-harshith/" target="_blank" rel="noopener noreferrer" class="bg-white border-2 border-black px-5 py-3 shadow-hard hover:bg-neo-purple hover:text-white hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">LINKEDIN</a>
+            <a href="https://leetcode.com/u/Harsihth_2737/" target="_blank" rel="noopener noreferrer" class="bg-white border-2 border-black px-5 py-3 shadow-hard hover:bg-neo-orange hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">LEETCODE</a>
+        </div>
+    </section>
+'''
+              html = html.replace('</body>', section + '\n</body>')
+
+          # Add a navigation link without disturbing the existing navigation structure.
+          nav_anchor = '<a href="#updates"'
+          if nav_anchor not in html:
+              old = '<a href="#projects"\n                    class="px-3 py-1 font-mono font-bold text-sm hover:bg-black hover:text-white transition-colors cursor-hover">/WORK</a>'
+              new = old + '\n                <a href="#updates"\n                    class="px-3 py-1 font-mono font-bold text-sm hover:bg-black hover:text-white transition-colors cursor-hover">/UPDATES</a>'
+              html = html.replace(old, new)
+
+          path.write_text(html, encoding='utf-8')
+      
+      - name: Commit and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git add -u .github/workflows/portfolio-content-sync.yml || true
+          rm -f .github/workflows/portfolio-content-sync.yml
+          git add -u .github/workflows/portfolio-content-sync.yml
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Sync portfolio with latest achievements and profile data"
+          git push
