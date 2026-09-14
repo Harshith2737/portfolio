@@ -1,0 +1,56 @@
+{
+  "lastSynced": "2026-09-14",
+  "name": "Govada Harshith",
+  "location": "Hyderabad, India",
+  "education": {
+    "institution": "CMR Technical Campus (Autonomous Engineering College)",
+    "degree": "B.Tech, CSE (Data Science)",
+    "period": "2025–2029",
+    "currentStanding": "Second-year student"
+  },
+  "profiles": {
+    "github": "https://github.com/Harshith2737",
+    "linkedin": "https://www.linkedin.com/in/govada-harshith/",
+    "leetcode": "https://leetcode.com/u/Harsihth_2737/",
+    "email": "harshithgovada34@gmail.com"
+  },
+  "focus": [
+    "AI",
+    "Data Science",
+    "Cybersecurity",
+    "Full-Stack Development"
+  ],
+  "achievements": [
+    {
+      "title": "1st Prize — CyberFest 2026 Hackathon",
+      "detail": "Cybersecurity domain, CBIT Hyderabad; team competed in a national-level hackathon."
+    },
+    {
+      "title": "1st Place — Datazoids Ideathon 2K26",
+      "detail": "Won with Team Breaking Bytes at CMA Technical Campus."
+    },
+    {
+      "title": "1st Place — Code-A-Thon 2026",
+      "detail": "Four-hour coding challenge at CMR Technical Campus, organized by Forge Alumnus Services."
+    }
+  ],
+  "recentLearningAndCredentials": [
+    "HackWithAI — Telangana offline AI hackathon, participation certificate (Mar 2026)",
+    "National AI/ML Hackathon by AVEVA of YUVAAN — participation certificate (Mar 2026)",
+    "Deloitte Australia — Cyber Job Simulation (Mar 2026)",
+    "Deloitte Australia — Data Analytics Job Simulation (Mar 2026)",
+    "Deloitte Australia — Technology Job Simulation (Mar 2026)",
+    "AI / Claude bootcamp participation and learning at CMR Technical Campus"
+  ],
+  "recentProjects": [
+    "KandEV (kandev)",
+    "Capacity Connect",
+    "Cross-Sense AI / Manufacturing Incident Investigator (launchpadx-hackthon)",
+    "Certificate Automation (certify)",
+    "Fraud Sandbox Arena",
+    "WhatsApp AutoBot",
+    "Sentiment Trader Pro",
+    "100 Days 100 Projects"
+  ],
+  "professionalPositioning": "Second-year CSE (Data Science) student building applied AI, data, cybersecurity and full-stack systems while actively participating in hackathons, ideathons, codeathons, workshops and student technical communities."
+}
