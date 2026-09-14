@@ -1,0 +1,59 @@
+name: Final portfolio content refresh
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply final content corrections
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+
+          # Current live profile/deployment URL supplied by the owner.
+          old_url = 'https://harshith-portfolio.vercel.app/'
+          live_url = 'https://portfolio-i9kloe3lc-harshithgovada34-6006s-projects.vercel.app/'
+          html = html.replace(old_url, live_url)
+
+          # Keep the original experience card animation/layout, but remove stale Yulu employment claims.
+          swaps = {
+              'Data Science Intern': 'Student Builder & Technical Leadership',
+              'Yulu • Hyderabad': 'CMR Technical Campus • Hyderabad',
+              '@ YULU BIKE RENTAL DEMAND PREDICTION': '@ AI • DATA • CYBER • FULL-STACK',
+              'Analyzed historical bike-sharing data to identify key demand drivers (weather, time, events)': 'Built and presented applied AI, data and cybersecurity projects across hackathons, ideathons and technical events',
+              'Built predictive models to forecast demand and optimize fleet management': 'Led project delivery, technical presentations and team coordination across student build challenges',
+              'Derived insights to improve customer experience by aligning availability with peak usage': 'Contributed to workshops, peer learning, technical communities and industry-connected campus events',
+              'Contributed to business-oriented analysis for operational efficiency': 'Currently focused on strengthening full-stack engineering, data science and applied AI systems',
+          }
+          for a, b in swaps.items():
+              html = html.replace(a, b)
+
+          # Improve the primary identity copy while preserving the existing visual structure.
+          html = html.replace('OPEN FOR INTERNSHIPS /// DATA SCIENCE /// AI TOOLS /// FRAUD DEFENSE /// CYBER SECURITY /// REACT ///\n                PYTHON /// OPEN FOR INTERNSHIPS /// DATA SCIENCE ///',
+                              'OPEN FOR INTERNSHIPS /// DATA SCIENCE /// APPLIED AI /// CYBERSECURITY /// FULL-STACK /// REACT ///\n                PYTHON /// HACKATHONS /// IDEATHONS /// OPEN FOR INTERNSHIPS ///')
+
+          p.write_text(html, encoding='utf-8')
+      - name: Commit and remove workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Finalize current portfolio positioning" || true
+          git rm .github/workflows/final-content-refresh.yml || true
+          git commit -m "Remove temporary final content refresh workflow" || true
+          git push origin main
