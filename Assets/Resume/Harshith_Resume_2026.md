@@ -8,11 +8,11 @@ LeetCode: https://leetcode.com/u/Harsihth_2737/
 Email: harshithgovada34@gmail.com
 
 ## Profile
-Hands-on CSE (Data Science) student and builder who turns ideas into working software. Experience across multimodal AI systems, cybersecurity and fraud concepts, automation, web applications and data-driven products, with active participation in hackathons, ideathons, workshops and student communities.
+Second-year B.Tech CSE (Data Science) student and hands-on builder focused on turning ideas into working software. Building across applied AI, data-driven products, cybersecurity, fraud simulation, automation and full-stack web systems. Active in hackathons, ideathons, codeathons, workshops and student technical communities.
 
 ## Education
 **CMR Technical Campus (Autonomous Engineering College)** - B.Tech, CSE (Data Science)  
-2025 - Present | Hyderabad, India
+2025 - 2029 | Hyderabad, India
 
 ## Selected Projects
 **Cross-Sense AI - Manufacturing Incident Investigator**  
@@ -24,8 +24,8 @@ Python workflow for participant-data driven certificate generation using determi
 **WhatsApp AutoBot**  
 Privacy-conscious assistant prototype using Node.js/Express, whatsapp-web.js, SQLite and Claude to draft replies, preserve local conversation history and require human approval before sending.
 
-**Sentiment Trader Pro**  
-React + TypeScript/Vite dashboard concept for market sentiment visualization, AI-assisted signal analysis and portfolio risk adjustment with extensible API integration points.
+**Fraud Sandbox Arena / Sentinel**  
+Configurable payment-fraud simulation environment covering card testing, account takeover and collusion scenarios with transaction generation, rule/model interfaces and detection-performance metrics.
 
 ## Leadership & Community
 - Team lead and active contributor across student hackathons, ideathons, codeathons, workshops and technical events; involved in planning, execution, presentations and peer coordination.
@@ -33,15 +33,16 @@ React + TypeScript/Vite dashboard concept for market sentiment visualization, AI
 - Served in evaluation/jury roles for student technical activities and supported execution of college innovation programs.
 
 ## Achievements
-- **1st Prize - CyberFest 2026 Hackathon**, cybersecurity domain, CBIT Hyderabad.
-- **1st Place - Datazoids Ideathon**, CMA Technical Campus, with Team Breaking Bytes.
-- Active participant in hackathons, ideathons and build challenges focused on AI, cybersecurity and applied software systems.
+- **1st Prize - CyberFest 2026 Hackathon**, Cybersecurity domain, CBIT Hyderabad.
+- **1st Place - Datazoids Ideathon 2K26**, with Team Breaking Bytes, CMA Technical Campus.
+- **1st Place - Code-A-Thon 2026**, CMR Technical Campus, organized by Forge Alumnus Services.
+- Participation/learning credentials spanning HackWithAI, AVEVA of YUVAAN National AI/ML Hackathon and Deloitte Australia technology, data analytics and cyber job simulations.
 
 ## Technical Skills
 **Languages:** Python, C++, C, Java, JavaScript/TypeScript, SQL  
-**Web & Backend:** React, Next.js, Node.js, Express, Tailwind CSS, REST APIs  
+**Web & Backend:** React, Next.js, Node.js, Express, Tailwind CSS, PHP, REST APIs  
 **AI / Data:** Data Science, NLP, multimodal AI concepts, LLM applications, data analysis  
-**Databases & Tools:** PostgreSQL, SQLite, Git/GitHub, Linux/WSL, Playwright, Vercel  
+**Databases & Tools:** PostgreSQL, SQLite, Supabase, Git/GitHub, Linux/WSL, Playwright, Vercel  
 **Engineering:** Authentication/RBAC concepts, API integration, automation, testing, system design basics
 
 ## Profiles
